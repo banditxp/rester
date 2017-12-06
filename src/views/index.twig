@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>MKTP Admin - API</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.css">
+</head>
+<body>
+  <div class="ui container">
+    <br>
+    <h1 class="ui header">RESTER</h1>
+    <div class="ui styled fluid accordion">
+      {% for row in api %}
+      <div class="title">
+        <code>{{row.path}}</code> || {{row.name}}
+        <div class="ui mini {{metodos[row.method]}} label">{{row.method}}</div>
+      </div>
+      <div class="content">
+        <a href="{{row.path}}">{{row.path}}</a> :: {{row.name}}
+        <p>{{row.description}}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.js"></script>
+  <script>
+    $('.ui.accordion').accordion();
+  </script>
+</body>
+</html>
